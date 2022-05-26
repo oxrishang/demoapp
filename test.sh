@@ -9,7 +9,7 @@ then
   echo "Waiting for Mysql..."
 
   while ! nc -z $MYSQL_HOST $MYSQL_PORT; do
-    sleep 1
+    sleep 5
   done
 
   echo "Mysql started"
