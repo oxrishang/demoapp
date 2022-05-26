@@ -32,7 +32,7 @@ jobs:
       - name: Connect to MySQL
         # Runs a script that creates a MySQL table, populates
         # the table with data, and then retrieves the data.
-        run: sleep 30;python test.py
+        run: bash test.sh
         # Environment variables used by the `client.js` script to create a new MySQL table.
         env:
           # The hostname used to communicate with the MySQL service container
