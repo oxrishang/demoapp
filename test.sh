@@ -13,7 +13,7 @@ then
   done
 
   echo "Mysql started"
-  python test.sh
+  python test.py
 fi
 
 exec "$@"
