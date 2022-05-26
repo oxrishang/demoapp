@@ -3,7 +3,7 @@
 #!/bin/bash
 DATABASE="mysql"
 
-if [ "$DATABASE" == "mysql" ]
+if [ "$DATABASE" == "mysql" ];
 then
 
   echo "Waiting for Mysql..."
