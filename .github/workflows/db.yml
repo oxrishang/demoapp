@@ -1,0 +1,42 @@
+name: MySQL service example
+on: push
+
+jobs:
+  # Label of the container job
+  test-db:
+    # Containers must run in Linux based operating systems
+    runs-on: ubuntu-latest
+    # Docker Hub image that `test-db` executes in
+
+    # Service containers to run with `test-db`
+    services:
+      # Label used to access the service container
+      mysql:
+        # Docker Hub image
+        image: mysql:8.0.29
+        # Provide the password for MYSQL
+        env:
+          MYSQL_ROOT_PASSWORD: example
+
+
+    steps:
+      # Downloads a copy of the code in your repository before running CI tests
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Connect to MySQL
+        # Runs a script that creates a MySQL table, populates
+        # the table with data, and then retrieves the data.
+        run: python test.py
+        # Environment variables used by the `client.js` script to create a new MySQL table.
+        env:
+          # The hostname used to communicate with the MySQL service container
+          MYSQL_HOST: mysql
+          # The default MySQL port
+          MYSQL_PORT: 3306
+
