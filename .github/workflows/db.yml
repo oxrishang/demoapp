@@ -17,6 +17,11 @@ jobs:
         # Provide the password for MYSQL
         env:
           MYSQL_ROOT_PASSWORD: example
+          MYSQL_DATABASE: unittest
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
 
 
     steps:
@@ -36,7 +41,7 @@ jobs:
         # Environment variables used by the `client.js` script to create a new MySQL table.
         env:
           # The hostname used to communicate with the MySQL service container
-          MYSQL_HOST: mysql
+          MYSQL_HOST: localhost
           # The default MySQL port
           MYSQL_PORT: 3306
 
