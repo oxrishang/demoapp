@@ -1,8 +1,9 @@
 
   
 #!/bin/bash
+DATABASE="mysql"
 
-if [ "$DATABASE" == "Mysql" ]
+if [ "$DATABASE" == "mysql" ]
 then
 
   echo "Waiting for Mysql..."
