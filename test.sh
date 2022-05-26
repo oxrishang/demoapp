@@ -3,7 +3,7 @@
 #!/bin/bash
 DATABASE="mysql"
 
-if [ "$DATABASE" == "mysql" ];
+if [[ $DATABASE == "mysql" ]]
 then
 
   echo "Waiting for Mysql..."
@@ -13,7 +13,7 @@ then
   done
 
   echo "Mysql started"
-  python "test.sh"
+  python test.sh
 fi
 
 exec "$@"
